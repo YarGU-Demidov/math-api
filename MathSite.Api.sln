@@ -1,0 +1,59 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2042
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{DCCA6D2B-8D38-4006-A18E-F04385738740}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{EDE11B27-0A51-4957-A07E-A1A830B4D32A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MathSite.Api.Core", "src\MathSite.Api.Core\MathSite.Api.Core.csproj", "{4FAF4992-8F5B-4FAB-8F37-8E3B98D4E1F4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MathSite.Api.Dto", "src\MathSite.Api.Dto\MathSite.Api.Dto.csproj", "{8564FA51-E4D1-435D-B263-173078A22A83}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MathSite.Api.Services", "src\MathSite.Api.Services\MathSite.Api.Services.csproj", "{0B0E7F57-8B4A-4832-8177-1E4816615A78}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MathSite.Api.Internal", "src\MathSite.Api.Internal\MathSite.Api.Internal.csproj", "{C3B3AB15-CBC6-44E6-9196-DB7C14CEB682}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DC669516-D283-4957-8020-9F5B9F8C8292}"
+	ProjectSection(SolutionItems) = preProject
+		NuGet.config = NuGet.config
+		README.MD = README.MD
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4FAF4992-8F5B-4FAB-8F37-8E3B98D4E1F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FAF4992-8F5B-4FAB-8F37-8E3B98D4E1F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FAF4992-8F5B-4FAB-8F37-8E3B98D4E1F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FAF4992-8F5B-4FAB-8F37-8E3B98D4E1F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8564FA51-E4D1-435D-B263-173078A22A83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8564FA51-E4D1-435D-B263-173078A22A83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8564FA51-E4D1-435D-B263-173078A22A83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8564FA51-E4D1-435D-B263-173078A22A83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B0E7F57-8B4A-4832-8177-1E4816615A78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B0E7F57-8B4A-4832-8177-1E4816615A78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B0E7F57-8B4A-4832-8177-1E4816615A78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B0E7F57-8B4A-4832-8177-1E4816615A78}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3B3AB15-CBC6-44E6-9196-DB7C14CEB682}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3B3AB15-CBC6-44E6-9196-DB7C14CEB682}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3B3AB15-CBC6-44E6-9196-DB7C14CEB682}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3B3AB15-CBC6-44E6-9196-DB7C14CEB682}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4FAF4992-8F5B-4FAB-8F37-8E3B98D4E1F4} = {DCCA6D2B-8D38-4006-A18E-F04385738740}
+		{8564FA51-E4D1-435D-B263-173078A22A83} = {DCCA6D2B-8D38-4006-A18E-F04385738740}
+		{0B0E7F57-8B4A-4832-8177-1E4816615A78} = {DCCA6D2B-8D38-4006-A18E-F04385738740}
+		{C3B3AB15-CBC6-44E6-9196-DB7C14CEB682} = {DCCA6D2B-8D38-4006-A18E-F04385738740}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5C34F67A-20F5-4BF5-A358-EEEF01B25A6D}
+	EndGlobalSection
+EndGlobal

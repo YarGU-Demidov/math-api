@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>mokeev1995</Authors>
+    <Description>Math Site Services Endpoints</Description>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>1.0.1</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MathSite.Api.Core" Version="1.0.1" />
+    <PackageReference Include="MathSite.Api.Dto" Version="1.0.1" />
+  </ItemGroup>
+
+</Project>

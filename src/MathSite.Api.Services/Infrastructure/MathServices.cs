@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using MathSite.Api.Core;
 
@@ -24,10 +25,16 @@ namespace MathSite.Api.Services.Infrastructure
         public GroupsService Groups => GetService<GroupsService>();
         public DirectoriesService Directories => GetService<DirectoriesService>();
         public FilesService Files => GetService<FilesService>();
+        public CategoriesService Categories => GetService<CategoriesService>();
 
         private T GetService<T>() where T : BaseApiService
         {
             return (T) _services.First(service => service is T);
+        }
+
+        private BaseApiService GetService(Type type)
+        {
+            return _services.First(service => service.GetType() == type);
         }
     }
 }

@@ -4,7 +4,8 @@ namespace MathSite.Api.Core
 {
     public sealed class ApiResponse<T> : ApiResponse
     {
-        [JsonProperty("data")] public T Data { get; set; }
+        [JsonProperty("data")] 
+        public T Data { get; set; }
     }
 
     public sealed class VoidApiResponse : ApiResponse
@@ -13,9 +14,11 @@ namespace MathSite.Api.Core
 
     public abstract class ApiResponse
     {
-        [JsonProperty("status")] public string Status { get; set; }
+        [JsonProperty("status")] 
+        public string Status { get; set; } = "ok";
 
-        [JsonProperty("status")] public string Reason { get; set; }
+        [JsonProperty("reason")] 
+        public string Reason { get; set; }
 
         public bool HasError()
         {

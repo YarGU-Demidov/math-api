@@ -32,6 +32,7 @@ namespace MathSite.Api.Services.Infrastructure
             services.AddSingleton<BaseApiService, GroupsService>();
             services.AddSingleton<BaseApiService, DirectoriesService>();
             services.AddSingleton<BaseApiService, FilesService>();
+            services.AddSingleton<BaseApiService, CategoriesService>();
 
             return services;
         }

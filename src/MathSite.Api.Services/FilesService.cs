@@ -9,7 +9,7 @@ using MathSite.Common.ApiServiceRequester.Abstractions;
 
 namespace MathSite.Api.Services
 {
-    public class FilesService : CrudPagableBaseApiService<FileDto>
+    public class FilesService : CrudPageableBaseApiService<FileDto>
     {
         public FilesService(IApiRequester apiRequester) : base(apiRequester)
         {

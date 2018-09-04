@@ -9,7 +9,7 @@ using MathSite.Common.ApiServiceRequester.Abstractions;
 
 namespace MathSite.Api.Services
 {
-    public class PostsService : CrudPagableBaseApiService<PostDto>
+    public class PostsService : CrudPageableBaseApiService<PostDto>
     {
         public PostsService(IApiRequester apiRequester) : base(apiRequester)
         {

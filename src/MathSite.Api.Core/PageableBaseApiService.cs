@@ -5,9 +5,9 @@ using MathSite.Common.ApiServiceRequester.Abstractions;
 
 namespace MathSite.Api.Core
 {
-    public abstract class PagableBaseApiService<T> : CountableBaseApiService where T : BaseEntity
+    public abstract class PageableBaseApiService<T> : CountableBaseApiService where T : BaseEntity
     {
-        protected PagableBaseApiService(IApiRequester apiRequester) : base(apiRequester)
+        protected PageableBaseApiService(IApiRequester apiRequester) : base(apiRequester)
         {
         }
 
@@ -15,8 +15,8 @@ namespace MathSite.Api.Core
         {
             var args = new MethodArgs
             {
-                {"page", page.ToString()},
-                {"perPage", perPage.ToString()}
+                {nameof(page), page.ToString()},
+                {nameof(perPage), perPage.ToString()}
             };
 
             return await PostRequestAsync<IEnumerable<T>>(MethodNames.Global.GetPaged, args);

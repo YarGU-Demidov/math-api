@@ -6,7 +6,7 @@ using MathSite.Common.ApiServiceRequester.Abstractions;
 
 namespace MathSite.Api.Services
 {
-    public class PostSeoSettingsService : CrudPagableBaseApiService<PostSeoSettingDto>
+    public class PostSeoSettingsService : CrudPageableBaseApiService<PostSeoSettingDto>
     {
         public PostSeoSettingsService(IApiRequester apiRequester) : base(apiRequester)
         {

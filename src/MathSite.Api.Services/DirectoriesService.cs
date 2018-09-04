@@ -6,7 +6,7 @@ using MathSite.Common.ApiServiceRequester.Abstractions;
 
 namespace MathSite.Api.Services
 {
-    public class DirectoriesService : CrudPagableBaseApiService<DirectoryDto>
+    public class DirectoriesService : CrudPageableBaseApiService<DirectoryDto>
     {
         public DirectoriesService(IApiRequester apiRequester) : base(apiRequester)
         {

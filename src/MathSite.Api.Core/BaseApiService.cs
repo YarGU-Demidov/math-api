@@ -24,7 +24,7 @@ namespace MathSite.Api.Core
         protected async Task<T> GetRequestAsync<T>(string methodName, MethodArgs args = null)
         {
             return GetResponseOrFail(
-                await ApiRequester.GetAsync<ApiResponse<T>>(GetMethod(methodName), args)
+                await ApiRequester.GetAsync<DataApiResponse<T>>(GetMethod(methodName), args)
             );
         }
 
@@ -38,7 +38,7 @@ namespace MathSite.Api.Core
         protected async Task<T> PostRequestAsync<T>(string methodName, MethodArgs args = null, IDictionary<string, IEnumerable<Stream>> files = null)
         {
             return GetResponseOrFail(
-                await ApiRequester.PostAsync<ApiResponse<T>>(GetMethod(methodName), args, files)
+                await ApiRequester.PostAsync<DataApiResponse<T>>(GetMethod(methodName), args, files)
             );
         }
 
@@ -49,7 +49,7 @@ namespace MathSite.Api.Core
             );
         }
 
-        private T GetResponseOrFail<T>(ApiResponse<T> response)
+        private T GetResponseOrFail<T>(DataApiResponse<T> response)
         {
             FailIfError(response);
 

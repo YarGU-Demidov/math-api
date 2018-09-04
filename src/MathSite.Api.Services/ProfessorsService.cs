@@ -5,7 +5,7 @@ using MathSite.Common.ApiServiceRequester.Abstractions;
 
 namespace MathSite.Api.Services
 {
-    public class ProfessorsService : CrudPagableBaseApiService<ProfessorDto>
+    public class ProfessorsService : CrudPageableBaseApiService<ProfessorDto>
     {
         public ProfessorsService(IApiRequester apiRequester) : base(apiRequester)
         {

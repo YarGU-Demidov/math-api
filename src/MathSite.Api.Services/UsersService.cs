@@ -32,11 +32,21 @@ namespace MathSite.Api.Services
             return await GetRequestAsync<UserDto>(MethodNames.Users.GetByLogin, args);
         }
 
-        public async Task<bool> UserHasRightAsync(Guid userId, string rightAlias)
+        public async Task<bool> HasRightAsync(Guid userId, string rightAlias)
         {
             var args = new MethodArgs
             {
                 {nameof(userId), userId.ToString()},
+                {nameof(rightAlias), rightAlias}
+            };
+
+            return await GetRequestAsync<bool>(MethodNames.Users.HasRight, args);
+        }
+
+        public async Task<bool> HasCurrentUserRightAsync(string rightAlias)
+        {
+            var args = new MethodArgs
+            {
                 {nameof(rightAlias), rightAlias}
             };
 
@@ -60,7 +70,8 @@ namespace MathSite.Api.Services
             {
                 {nameof(user.Login), user.Login},
                 {nameof(user.Password), user.Password},
-                {nameof(user.GroupId), user.GroupId}
+                {nameof(user.GroupId), user.GroupId},
+                {nameof(user.PersonId), user.PersonId.ToString()},
             };
         }
     }

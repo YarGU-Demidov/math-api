@@ -11,7 +11,7 @@ namespace MathSite.Api.Dto
         public Guid PersonId { get; set; }
         public PersonDto Person { get; set; }
 
-        public string GroupId { get; set; }
+        public Guid GroupId { get; set; }
         public GroupDto Group { get; set; }
     }
 }

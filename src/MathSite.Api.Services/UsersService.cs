@@ -70,7 +70,7 @@ namespace MathSite.Api.Services
             {
                 {nameof(user.Login), user.Login},
                 {nameof(user.Password), user.Password},
-                {nameof(user.GroupId), user.GroupId},
+                {nameof(user.GroupId), user.GroupId.ToString()},
                 {nameof(user.PersonId), user.PersonId.ToString()},
             };
         }

@@ -50,7 +50,7 @@ namespace MathSite.Api.Services
                 {nameof(rightAlias), rightAlias}
             };
 
-            return await GetRequestAsync<bool>(MethodNames.Users.HasRight, args);
+            return await GetRequestAsync<bool>(MethodNames.Users.HasCurrentUserRight, args);
         }
 
         public async Task<UserDto> GetByLoginAndPasswordAsync(string login, string password)

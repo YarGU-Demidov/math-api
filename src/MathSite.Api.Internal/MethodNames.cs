@@ -20,6 +20,7 @@
             public const string GetByLogin = "get-by-login";
             public const string GetByLoginAndPassword = "get-by-login-and-password";
             public const string HasRight = "has-right";
+            public const string HasCurrentUserRight = "has-current-user-right";
         }
 
         public static class SiteSettings

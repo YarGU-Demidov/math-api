@@ -5,7 +5,7 @@
     <Authors>mokeev1995</Authors>
     <Description>Core classes for MathSite API</Description>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.0.4</Version>
+    <Version>1.0.5</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -17,11 +17,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MathSite.Api.Internal" Version="1.0.2" />
     <PackageReference Include="MathSite.Common.ApiServiceRequester" Version="1.8.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\MathSite.Api.Internal\MathSite.Api.Internal.csproj" />
   </ItemGroup>
 
 </Project>

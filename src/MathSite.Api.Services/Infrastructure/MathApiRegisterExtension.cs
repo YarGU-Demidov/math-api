@@ -11,10 +11,10 @@ namespace MathSite.Api.Services.Infrastructure
     {
         public static IServiceCollection AddMathApi<TDomainServiceUriBuilder>(
             this IServiceCollection services,
-            IConfiguration authConfigconfigurationSource
+            IConfiguration authConfigurationSource
         ) where TDomainServiceUriBuilder : class, IServiceUriBuilder
         {
-            return services.AddApiRequester<TDomainServiceUriBuilder>(authConfigconfigurationSource, new Version(1, 0))
+            return services.AddApiRequester<TDomainServiceUriBuilder>(authConfigurationSource, new Version(1, 0))
                 .AddServices()
                 .AddSingleton<MathServices>();
         }

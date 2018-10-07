@@ -5,7 +5,7 @@ using MathSite.Common.ApiServiceRequester.Abstractions;
 
 namespace MathSite.Api.Core
 {
-    public abstract class CrudPageableWithAliasBaseApiService<T> : CrudPageableBaseApiService<T, Guid>
+    public abstract class CrudPageableWithAliasBaseApiService<T> : CrudPageableWithAliasBaseApiService<T, Guid>
         where T: BaseEntityWithAlias
     {
         protected CrudPageableWithAliasBaseApiService(IApiRequester apiRequester) : base(apiRequester)

@@ -2,41 +2,41 @@
 
 namespace MathSite.Api.Core
 {
-    public sealed class DataApiResponse<T> : ApiResponse
+    public sealed class ErrorApiResponse<T> : ApiResponse<T>
     {
-        [JsonProperty("data")] 
-        public T Data { get; set; }
-
-        public DataApiResponse(T data)
-        {
-            Status = ApiStatuses.Ok;
-            Data = data;
-        }
-    }
-
-    public sealed class ErrorApiResponse : ApiResponse
-    {
-        public ErrorApiResponse(string reason)
+        public ErrorApiResponse(string reason) : base(default)
         {
             Status = ApiStatuses.Error;
             Reason = reason;
         }
     }
 
-    public sealed class VoidApiResponse : ApiResponse
+    public sealed class VoidApiResponse<T> : ApiResponse<T>
     {
-        public VoidApiResponse()
+        public VoidApiResponse() : base(default)
         {
             Status = ApiStatuses.Ok;
         }
     }
 
+    public class ApiResponse<T> : ApiResponse
+    {
+        public ApiResponse(T data)
+        {
+            Status = ApiStatuses.Ok;
+            Data = data;
+        }
+
+        [JsonProperty("data")]
+        public T Data { get; set; }
+    }
+
     public abstract class ApiResponse
     {
-        [JsonProperty("status")] 
+        [JsonProperty("status")]
         public string Status { get; protected set; }
-        
-        [JsonProperty("reason")] 
+
+        [JsonProperty("reason")]
         public string Reason { get; protected set; }
 
         public bool HasError()

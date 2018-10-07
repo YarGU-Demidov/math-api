@@ -21,18 +21,18 @@ namespace MathSite.Api.Services.Infrastructure
 
         private static IServiceCollection AddServices(this IServiceCollection services)
         {
-            services.AddSingleton<BaseApiService, UsersService>();
-            services.AddSingleton<BaseApiService, SiteSettingsService>();
-            services.AddSingleton<BaseApiService, PersonsService>();
-            services.AddSingleton<BaseApiService, ProfessorsService>();
-            services.AddSingleton<BaseApiService, PostTypesService>();
-            services.AddSingleton<BaseApiService, PostSeoSettingsService>();
-            services.AddSingleton<BaseApiService, PostSettingsService>();
-            services.AddSingleton<BaseApiService, PostsService>();
-            services.AddSingleton<BaseApiService, GroupsService>();
-            services.AddSingleton<BaseApiService, DirectoriesService>();
-            services.AddSingleton<BaseApiService, FilesService>();
-            services.AddSingleton<BaseApiService, CategoriesService>();
+            services.AddSingleton<ApiService, UsersService>();
+            services.AddSingleton<ApiService, SiteSettingsService>();
+            services.AddSingleton<ApiService, PersonsService>();
+            services.AddSingleton<ApiService, ProfessorsService>();
+            services.AddSingleton<ApiService, PostTypesService>();
+            services.AddSingleton<ApiService, PostSeoSettingsService>();
+            services.AddSingleton<ApiService, PostSettingsService>();
+            services.AddSingleton<ApiService, PostsService>();
+            services.AddSingleton<ApiService, GroupsService>();
+            services.AddSingleton<ApiService, DirectoriesService>();
+            services.AddSingleton<ApiService, FilesService>();
+            services.AddSingleton<ApiService, CategoriesService>();
 
             return services;
         }

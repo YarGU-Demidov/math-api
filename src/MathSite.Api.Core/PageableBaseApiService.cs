@@ -6,13 +6,14 @@ using MathSite.Common.ApiServiceRequester.Abstractions;
 
 namespace MathSite.Api.Core
 {
-    public abstract class PageableBaseApiService<T> : PageableBaseApiService<T, Guid> where T : BaseEntity {
+    public abstract class PageableBaseApiService<T> : PageableBaseApiService<T, Guid> where T : BaseEntity
+    {
         protected PageableBaseApiService(IApiRequester apiRequester) : base(apiRequester)
         {
         }
     }
 
-    public abstract class PageableBaseApiService<T, TPrimaryKey> : CountableBaseApiService where T : BaseEntity<TPrimaryKey>
+    public abstract class PageableBaseApiService<T, TPrimaryKey> : CountableBaseApiService<TPrimaryKey> where T : BaseEntity<TPrimaryKey>
     {
         protected PageableBaseApiService(IApiRequester apiRequester) : base(apiRequester)
         {

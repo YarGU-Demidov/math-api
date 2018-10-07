@@ -7,9 +7,9 @@ namespace MathSite.Api.Services.Infrastructure
 {
     public class MathServices
     {
-        private readonly BaseApiService[] _services;
+        private readonly ApiService[] _services;
 
-        public MathServices(IEnumerable<BaseApiService> services)
+        public MathServices(IEnumerable<ApiService> services)
         {
             _services = services.ToArray();
         }
@@ -27,14 +27,9 @@ namespace MathSite.Api.Services.Infrastructure
         public FilesService Files => GetService<FilesService>();
         public CategoriesService Categories => GetService<CategoriesService>();
 
-        private T GetService<T>() where T : BaseApiService
+        private T GetService<T>() where T : ApiService
         {
             return (T) _services.First(service => service is T);
-        }
-
-        private BaseApiService GetService(Type type)
-        {
-            return _services.First(service => service.GetType() == type);
         }
     }
 }

@@ -14,7 +14,7 @@ namespace MathSite.Api.Core
         }
     }
 
-    public abstract class BaseApiService<TPrimaryKey>
+    public abstract class BaseApiService<TPrimaryKey> : ApiService
     {
         protected BaseApiService(IApiRequester apiRequester)
         {
@@ -32,32 +32,32 @@ namespace MathSite.Api.Core
         protected async Task<TReturn> GetRequestAsync<TReturn>(string methodName, MethodArgs args = null)
         {
             return GetResponseOrFail(
-                await ApiRequester.GetAsync<DataApiResponse<TReturn>>(GetMethod(methodName), args)
+                await ApiRequester.GetAsync<ApiResponse<TReturn>>(GetMethod(methodName), args)
             );
         }
 
         protected async Task GetRequestAsync(string methodName, MethodArgs args = null)
         {
             FailIfError(
-                await ApiRequester.GetAsync<VoidApiResponse>(GetMethod(methodName), args)
+                await ApiRequester.GetAsync<VoidApiResponse<string>>(GetMethod(methodName), args)
             );
         }
 
         protected async Task<TReturn> PostRequestAsync<TReturn>(string methodName, MethodArgs args = null, IDictionary<string, IEnumerable<Stream>> files = null)
         {
             return GetResponseOrFail(
-                await ApiRequester.PostAsync<DataApiResponse<TReturn>>(GetMethod(methodName), args, files)
+                await ApiRequester.PostAsync<ApiResponse<TReturn>>(GetMethod(methodName), args, files)
             );
         }
 
         protected async Task PostRequestAsync(string methodName, MethodArgs args = null)
         {
             FailIfError(
-                await ApiRequester.PostAsync<VoidApiResponse>(GetMethod(methodName), args)
+                await ApiRequester.PostAsync<VoidApiResponse<string>>(GetMethod(methodName), args)
             );
         }
 
-        private TReturn GetResponseOrFail<TReturn>(DataApiResponse<TReturn> response)
+        private TReturn GetResponseOrFail<TReturn>(ApiResponse<TReturn> response)
         {
             FailIfError(response);
 
@@ -75,4 +75,6 @@ namespace MathSite.Api.Core
             return data.Select(dto => dto.Id.ToString());
         }
     }
+
+    public abstract class ApiService { }
 }

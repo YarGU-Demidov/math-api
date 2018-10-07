@@ -6,7 +6,7 @@ using MathSite.Common.ApiServiceRequester.Abstractions;
 
 namespace MathSite.Api.Services
 {
-    public class CategoriesService : CrudPageableBaseApiService<CategoryDto>
+    public class CategoriesService : CrudPageableWithAliasBaseApiService<CategoryDto>
     {
         public CategoriesService(IApiRequester apiRequester) : base(apiRequester)
         {

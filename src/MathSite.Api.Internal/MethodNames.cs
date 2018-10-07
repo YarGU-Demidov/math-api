@@ -12,6 +12,8 @@
             public const string Update = "update";
             public const string Delete = "delete";
             public const string GetOne = "get-by-id";
+            
+            public const string GetByAlias = "get-by-alias";
         }
 
         public static class Users

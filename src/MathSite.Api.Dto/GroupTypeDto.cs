@@ -3,10 +3,9 @@ using MathSite.Api.Core;
 
 namespace MathSite.Api.Dto
 {
-    public class GroupTypeDto : BaseEntity
+    public class GroupTypeDto : BaseEntityWithAlias
     {
         public string Name { get; set; }
-        public string Alias { get; set; }
 
         /// <summary>
         ///     Описание типа группы.

@@ -4,10 +4,9 @@ using MathSite.Api.Core;
 
 namespace MathSite.Api.Dto
 {
-    public class GroupDto : BaseEntity
+    public class GroupDto : BaseEntityWithAlias
     {
         public string Name { get; set; }
-        public string Alias { get; set; }
 
         /// <summary>
         ///     Описание.

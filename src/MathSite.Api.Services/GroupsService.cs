@@ -7,7 +7,7 @@ using MathSite.Common.ApiServiceRequester.Abstractions;
 
 namespace MathSite.Api.Services
 {
-    public class GroupsService : CrudPageableBaseApiService<GroupDto>
+    public class GroupsService : CrudPageableWithAliasBaseApiService<GroupDto>
     {
         public GroupsService(IApiRequester apiRequester) : base(apiRequester)
         {

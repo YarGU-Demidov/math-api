@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -6,7 +7,14 @@ using MathSite.Common.ApiServiceRequester.Abstractions;
 
 namespace MathSite.Api.Core
 {
-    public abstract class BaseApiService
+    public abstract class BaseApiService : BaseApiService<Guid>
+    {
+        protected BaseApiService(IApiRequester apiRequester) : base(apiRequester)
+        {
+        }
+    }
+
+    public abstract class BaseApiService<TPrimaryKey>
     {
         protected BaseApiService(IApiRequester apiRequester)
         {
@@ -21,10 +29,10 @@ namespace MathSite.Api.Core
             return new ServiceMethod(serviceName ?? ServiceName, methodName);
         }
 
-        protected async Task<T> GetRequestAsync<T>(string methodName, MethodArgs args = null)
+        protected async Task<TReturn> GetRequestAsync<TReturn>(string methodName, MethodArgs args = null)
         {
             return GetResponseOrFail(
-                await ApiRequester.GetAsync<DataApiResponse<T>>(GetMethod(methodName), args)
+                await ApiRequester.GetAsync<DataApiResponse<TReturn>>(GetMethod(methodName), args)
             );
         }
 
@@ -35,10 +43,10 @@ namespace MathSite.Api.Core
             );
         }
 
-        protected async Task<T> PostRequestAsync<T>(string methodName, MethodArgs args = null, IDictionary<string, IEnumerable<Stream>> files = null)
+        protected async Task<TReturn> PostRequestAsync<TReturn>(string methodName, MethodArgs args = null, IDictionary<string, IEnumerable<Stream>> files = null)
         {
             return GetResponseOrFail(
-                await ApiRequester.PostAsync<DataApiResponse<T>>(GetMethod(methodName), args, files)
+                await ApiRequester.PostAsync<DataApiResponse<TReturn>>(GetMethod(methodName), args, files)
             );
         }
 
@@ -49,7 +57,7 @@ namespace MathSite.Api.Core
             );
         }
 
-        private T GetResponseOrFail<T>(DataApiResponse<T> response)
+        private TReturn GetResponseOrFail<TReturn>(DataApiResponse<TReturn> response)
         {
             FailIfError(response);
 
@@ -62,7 +70,7 @@ namespace MathSite.Api.Core
                 throw new ApiExecutionException(response.Reason);
         }
 
-        protected IEnumerable<string> ToStringEnumerable<T>(IEnumerable<T> data) where T : BaseEntity
+        protected IEnumerable<string> ToStringEnumerable<T>(IEnumerable<T> data) where T : BaseEntity<TPrimaryKey>
         {
             return data.Select(dto => dto.Id.ToString());
         }

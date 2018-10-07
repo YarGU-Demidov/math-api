@@ -1,11 +1,18 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using MathSite.Api.Internal;
 using MathSite.Common.ApiServiceRequester.Abstractions;
 
 namespace MathSite.Api.Core
 {
-    public abstract class PageableBaseApiService<T> : CountableBaseApiService where T : BaseEntity
+    public abstract class PageableBaseApiService<T> : PageableBaseApiService<T, Guid> where T : BaseEntity {
+        protected PageableBaseApiService(IApiRequester apiRequester) : base(apiRequester)
+        {
+        }
+    }
+
+    public abstract class PageableBaseApiService<T, TPrimaryKey> : CountableBaseApiService where T : BaseEntity<TPrimaryKey>
     {
         protected PageableBaseApiService(IApiRequester apiRequester) : base(apiRequester)
         {

@@ -5,14 +5,23 @@ using MathSite.Common.ApiServiceRequester.Abstractions;
 
 namespace MathSite.Api.Core
 {
-    public abstract class CrudPageableBaseApiService<T> : PageableBaseApiService<T> where T : BaseEntity
+    public enum ActionType
     {
-        public enum ActionType
-        {
-            Update,
-            Create
-        }
+        Update,
+        Create
+    }
 
+    public abstract class CrudPageableBaseApiService<T> : CrudPageableBaseApiService<T, Guid>
+        where T : BaseEntity
+    {
+        protected CrudPageableBaseApiService(IApiRequester apiRequester) : base(apiRequester)
+        {
+        }
+    }
+
+    public abstract class CrudPageableBaseApiService<T, TPrimaryKey> : PageableBaseApiService<T, TPrimaryKey> 
+        where T : BaseEntity<TPrimaryKey>
+    {
         protected CrudPageableBaseApiService(IApiRequester apiRequester) : base(apiRequester)
         {
         }

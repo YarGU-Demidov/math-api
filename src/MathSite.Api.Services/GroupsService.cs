@@ -17,10 +17,20 @@ namespace MathSite.Api.Services
         {
             var args = new MethodArgs
             {
-                {"GroupTypeAlias", groupTypeAlias}
+                {nameof(groupTypeAlias), groupTypeAlias}
             };
 
             return await GetRequestAsync<IEnumerable<GroupDto>>(MethodNames.Groups.GetGroupsByType, args);
+        }
+
+        public async Task<bool> HasRightAsync(string rightAlias)
+        {
+            var args = new MethodArgs
+            {
+                {nameof(rightAlias), rightAlias}
+            };
+
+            return await GetRequestAsync<bool>(MethodNames.Groups.GetGroupsByType, args);
         }
 
         protected override string ServiceName { get; } = ServiceNames.Groups;

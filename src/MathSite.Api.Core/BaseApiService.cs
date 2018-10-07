@@ -21,6 +21,8 @@ namespace MathSite.Api.Core
             ApiRequester = apiRequester;
         }
 
+        public bool ShouldRaiseException { get; set; }
+
         protected abstract string ServiceName { get; }
         protected IApiRequester ApiRequester { get; }
 
@@ -31,30 +33,41 @@ namespace MathSite.Api.Core
 
         protected async Task<TReturn> GetRequestAsync<TReturn>(string methodName, MethodArgs args = null)
         {
-            return GetResponseOrFail(
-                await ApiRequester.GetAsync<ApiResponse<TReturn>>(GetMethod(methodName), args)
-            );
+            var raiseOnFail = GetAndResetShouldRaiseException();
+            var response = await ApiRequester.GetAsync<ApiResponse<TReturn>>(GetMethod(methodName), args);
+
+            return raiseOnFail
+                ? GetResponseOrFail(response) 
+                : GetResponseOrDefault(response);
         }
 
         protected async Task GetRequestAsync(string methodName, MethodArgs args = null)
         {
-            FailIfError(
-                await ApiRequester.GetAsync<VoidApiResponse<string>>(GetMethod(methodName), args)
-            );
+            var raiseOnFail = GetAndResetShouldRaiseException();
+            var response = await ApiRequester.GetAsync<VoidApiResponse<string>>(GetMethod(methodName), args);
+
+            if(raiseOnFail)
+                FailIfError(response);
         }
 
-        protected async Task<TReturn> PostRequestAsync<TReturn>(string methodName, MethodArgs args = null, IDictionary<string, IEnumerable<Stream>> files = null)
+        protected async Task<TReturn> PostRequestAsync<TReturn>(string methodName, MethodArgs args = null,
+            IDictionary<string, IEnumerable<Stream>> files = null)
         {
-            return GetResponseOrFail(
-                await ApiRequester.PostAsync<ApiResponse<TReturn>>(GetMethod(methodName), args, files)
-            );
+            var raiseOnFail = GetAndResetShouldRaiseException();
+            var response = await ApiRequester.PostAsync<ApiResponse<TReturn>>(GetMethod(methodName), args, files);
+
+            return raiseOnFail
+                ? GetResponseOrFail(response) 
+                : GetResponseOrDefault(response);
         }
 
         protected async Task PostRequestAsync(string methodName, MethodArgs args = null)
         {
-            FailIfError(
-                await ApiRequester.PostAsync<VoidApiResponse<string>>(GetMethod(methodName), args)
-            );
+            var raiseOnFail = GetAndResetShouldRaiseException();
+            var response = await ApiRequester.PostAsync<VoidApiResponse<string>>(GetMethod(methodName), args);
+            
+            if (raiseOnFail)
+                FailIfError(response);
         }
 
         private TReturn GetResponseOrFail<TReturn>(ApiResponse<TReturn> response)
@@ -62,6 +75,12 @@ namespace MathSite.Api.Core
             FailIfError(response);
 
             return response.Data;
+        }
+        private TReturn GetResponseOrDefault<TReturn>(ApiResponse<TReturn> response)
+        {
+            return response.HasError() 
+                ? default 
+                : response.Data;
         }
 
         private void FailIfError(ApiResponse response)
@@ -74,7 +93,16 @@ namespace MathSite.Api.Core
         {
             return data.Select(dto => dto.Id.ToString());
         }
+
+        private bool GetAndResetShouldRaiseException()
+        {
+            var value = ShouldRaiseException;
+            ShouldRaiseException = true;
+            return value;
+        }
     }
 
-    public abstract class ApiService { }
+    public abstract class ApiService
+    {
+    }
 }

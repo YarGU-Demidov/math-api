@@ -59,6 +59,7 @@
         public static class Groups
         {
             public const string GetGroupsByType = "get-groups-by-type";
+            public const string HasRight = "has-right";
         }
 
         public static class Directories

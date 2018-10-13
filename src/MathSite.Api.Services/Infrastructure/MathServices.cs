@@ -26,6 +26,7 @@ namespace MathSite.Api.Services.Infrastructure
         public DirectoriesService Directories => GetService<DirectoriesService>();
         public FilesService Files => GetService<FilesService>();
         public CategoriesService Categories => GetService<CategoriesService>();
+        public AuthService Auth => GetService<AuthService>();
 
         private T GetService<T>() where T : ApiService
         {

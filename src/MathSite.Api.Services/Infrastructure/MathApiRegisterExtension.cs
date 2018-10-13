@@ -33,6 +33,7 @@ namespace MathSite.Api.Services.Infrastructure
             services.AddTransient<ApiService, DirectoriesService>();
             services.AddTransient<ApiService, FilesService>();
             services.AddTransient<ApiService, CategoriesService>();
+            services.AddTransient<ApiService, AuthService>();
 
             return services;
         }

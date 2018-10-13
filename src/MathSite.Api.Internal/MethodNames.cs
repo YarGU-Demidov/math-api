@@ -23,6 +23,8 @@
             public const string GetByLoginAndPassword = "get-by-login-and-password";
             public const string HasRight = "has-right";
             public const string HasCurrentUserRight = "has-current-user-right";
+            public const string GetCurrentUser = "get-current-user";
+            public const string DoesCurrentUserGuest = "does-current-user-is-guest";
         }
 
         public static class SiteSettings
@@ -95,6 +97,11 @@
         {
             public const string GetAllWithoutUsers = "get-all-without-users";
             public const string GetAllWithoutProfessors = "get-all-without-professors";
+        }
+
+        public static class Auth
+        {
+            public const string GetCurrentUserId = "get-current-user-id";
         }
     }
 }

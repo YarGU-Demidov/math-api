@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using MathSite.Api.Core;
 using MathSite.Api.Dto;
@@ -23,10 +24,11 @@ namespace MathSite.Api.Services
             return await GetRequestAsync<IEnumerable<GroupDto>>(MethodNames.Groups.GetGroupsByType, args);
         }
 
-        public async Task<bool> HasRightAsync(string rightAlias)
+        public async Task<bool> HasRightAsync(Guid groupId, string rightAlias)
         {
             var args = new MethodArgs
             {
+                {nameof(groupId), groupId.ToString()},
                 {nameof(rightAlias), rightAlias}
             };
 

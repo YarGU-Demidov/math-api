@@ -22,7 +22,7 @@ namespace MathSite.Api.Services
             return await GetRequestAsync<IEnumerable<UserDto>>(MethodNames.Users.GetAll);
         }
 
-        public async Task<UserDto> GetByLogin(string login)
+        public async Task<UserDto> GetByLoginAsync(string login)
         {
             var args = new MethodArgs
             {
@@ -30,6 +30,11 @@ namespace MathSite.Api.Services
             };
 
             return await GetRequestAsync<UserDto>(MethodNames.Users.GetByLogin, args);
+        }
+
+        public async Task<UserDto> GetCurrentUserAsync()
+        {
+            return await GetRequestAsync<UserDto>(MethodNames.Users.GetCurrentUser);
         }
 
         public async Task<bool> HasRightAsync(Guid userId, string rightAlias)
@@ -41,6 +46,11 @@ namespace MathSite.Api.Services
             };
 
             return await GetRequestAsync<bool>(MethodNames.Users.HasRight, args);
+        }
+
+        public async Task<bool> DoesCurrentUserIsGuestAsync()
+        {
+            return await GetRequestAsync<bool>(MethodNames.Users.DoesCurrentUserGuest);
         }
 
         public async Task<bool> HasCurrentUserRightAsync(string rightAlias)

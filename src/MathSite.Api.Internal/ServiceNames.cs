@@ -14,5 +14,6 @@
         public const string Directories = "directories";
         public const string Files = "files";
         public const string Categories = "categories";
+        public const string Auth = "auth";
     }
 }

@@ -102,6 +102,7 @@
         public static class Auth
         {
             public const string GetCurrentUserId = "get-current-user-id";
+            public const string GetToken = "get-token";
         }
     }
 }

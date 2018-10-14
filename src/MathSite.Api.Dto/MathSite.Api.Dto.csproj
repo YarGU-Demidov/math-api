@@ -6,11 +6,11 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Description>DTOs for Math Site API</Description>
     <Company>mokeev1995</Company>
-    <Version>1.0.8</Version>
+    <Version>1.0.10</Version>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MathSite.Api.Core" Version="1.0.21" />
+    <PackageReference Include="MathSite.Api.Core" Version="1.0.24" />
   </ItemGroup>
 
 </Project>

@@ -5,12 +5,12 @@
     <Authors>mokeev1995</Authors>
     <Description>Math Site Services Endpoints</Description>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.0.25</Version>
+    <Version>1.0.28</Version>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MathSite.Api.Core" Version="1.0.21" />
-    <PackageReference Include="MathSite.Api.Dto" Version="1.0.8" />
+    <PackageReference Include="MathSite.Api.Core" Version="1.0.24" />
+    <PackageReference Include="MathSite.Api.Dto" Version="1.0.10" />
   </ItemGroup>
 
 </Project>

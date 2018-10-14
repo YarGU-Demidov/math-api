@@ -12,7 +12,7 @@ namespace MathSite.Api.Core
             ApiRequester = apiRequester;
         }
 
-        public bool ShouldRaiseException { get; set; }
+        public bool ShouldRaiseException { get; set; } = true;
 
         protected abstract string ServiceName { get; }
         protected IApiRequester ApiRequester { get; }

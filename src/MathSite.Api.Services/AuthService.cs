@@ -18,5 +18,16 @@ namespace MathSite.Api.Services
         {
             return await GetRequestAsync<Guid>(MethodNames.Auth.GetCurrentUserId);
         }
+
+        public async Task<Guid> GetToken(string login, string password)
+        {
+            var args = new MethodArgs
+            {
+                {nameof(login), login},
+                {nameof(password), password}
+            };
+
+            return await PostRequestAsync<Guid>(MethodNames.Auth.GetToken, args);
+        }
     }
 }

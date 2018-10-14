@@ -36,7 +36,7 @@ namespace MathSite.Api.Core
         [JsonProperty("status")]
         public string Status { get; protected set; }
 
-        [JsonProperty("reason")]
+        [JsonProperty("reason", DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
         public string Reason { get; protected set; }
 
         public bool HasError()

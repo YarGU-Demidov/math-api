@@ -16,7 +16,7 @@ namespace MathSite.Api.Services.Infrastructure
         {
             return services.AddApiRequester<TDomainServiceUriBuilder>(authConfigurationSource, new Version(1, 0))
                 .AddServices()
-                .AddSingleton<MathServices>();
+                .AddScoped<MathServices>();
         }
 
         private static IServiceCollection AddServices(this IServiceCollection services)

@@ -6,7 +6,7 @@ using MathSite.Common.ApiServiceRequester.Abstractions;
 
 namespace MathSite.Api.Services
 {
-    public class PostTypesService : CrudPageableBaseApiService<PostTypeDto>
+    public class PostTypesService : CrudPageableWithAliasBaseApiService<PostTypeDto>
     {
         public PostTypesService(IApiRequester apiRequester) : base(apiRequester)
         {
@@ -22,16 +22,6 @@ namespace MathSite.Api.Services
             };
 
             return await GetRequestAsync<PostTypeDto>(MethodNames.PostTypes.GetByPostId, args);
-        }
-
-        public async Task<PostTypeDto> GetByAliasAsync(string alias)
-        {
-            var args = new MethodArgs
-            {
-                {nameof(alias), alias}
-            };
-
-            return await GetRequestAsync<PostTypeDto>(MethodNames.PostTypes.GetByAlias, args);
         }
 
         protected override MethodArgs EntityToArgs(PostTypeDto postType, ActionType action)

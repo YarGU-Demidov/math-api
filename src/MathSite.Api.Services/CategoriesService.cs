@@ -11,16 +11,6 @@ namespace MathSite.Api.Services
         public CategoriesService(IApiRequester apiRequester) : base(apiRequester)
         {
         }
-        
-        public async Task<bool> GetCategoryByAliasAsync(string alias)
-        {
-            var args = new MethodArgs
-            {
-                {"Alias", alias}
-            };
-
-            return await PostRequestAsync<bool>(MethodNames.Categories.GetCategoryByAlias, args);
-        }
 
         protected override string ServiceName { get; } = ServiceNames.Categories;
 

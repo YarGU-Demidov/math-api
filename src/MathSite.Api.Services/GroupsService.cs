@@ -32,7 +32,7 @@ namespace MathSite.Api.Services
                 {nameof(rightAlias), rightAlias}
             };
 
-            return await GetRequestAsync<bool>(MethodNames.Groups.GetGroupsByType, args);
+            return await GetRequestAsync<bool>(MethodNames.Groups.HasRight, args);
         }
 
         protected override string ServiceName { get; } = ServiceNames.Groups;

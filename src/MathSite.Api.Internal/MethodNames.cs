@@ -55,7 +55,6 @@
 
         public static class Categories
         {
-            public const string GetCategoryByAlias = "get-category-by-alias";
         }
 
         public static class Groups
@@ -80,7 +79,6 @@
         public static class PostTypes
         {
             public const string GetByPostId = "get-by-post-id";
-            public const string GetByAlias = "get-by-alias";
         }
 
         public static class PostSettings

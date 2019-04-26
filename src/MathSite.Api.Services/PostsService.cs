@@ -37,7 +37,7 @@ namespace MathSite.Api.Services
             var args = new MethodArgs
             {
                 {nameof(url), url},
-                {"postTypeId", postType.Id.ToString()}
+                {"postType.Id", postType.Id.ToString()}//TODO Canged Service
             };
 
             return await PostRequestAsync<PostDto>(MethodNames.Posts.GetPostByUrlAndType, args);
@@ -58,7 +58,7 @@ namespace MathSite.Api.Services
                 {nameof(postsGetterArgs.FrontPageStatus), postsGetterArgs.FrontPageStatus.ToString()},
                 {nameof(postsGetterArgs.ItemAvailableStatus), postsGetterArgs.ItemAvailableStatus.ToString()},
                 {nameof(postsGetterArgs.PublishStatus), postsGetterArgs.PublishStatus.ToString()},
-                {"PostTypeId", postsGetterArgs.PostType.Id.ToString()}
+                {"PostType.Id", postsGetterArgs.PostType.Id.ToString()}//TODO Canged Service
             };
 
             return await PostRequestAsync<IEnumerable<PostDto>>(MethodNames.Posts.GetPosts, args);

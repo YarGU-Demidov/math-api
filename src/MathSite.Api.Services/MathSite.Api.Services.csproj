@@ -9,8 +9,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MathSite.Api.Core" Version="1.0.27" />
-    <PackageReference Include="MathSite.Api.Dto" Version="1.0.13" />
+    <ProjectReference Include="..\MathSite.Api.Dto\MathSite.Api.Dto.csproj" />
+    <ProjectReference Include="..\MathSite.Api.Internal\MathSite.Api.Internal.csproj" />
   </ItemGroup>
 
 </Project>

@@ -23,6 +23,7 @@
 
     public abstract class PostArgs
     {
+        public PostArgs() { }
         protected PostArgs(
             PublishStatus publishStatus = PublishStatus.Any,
             FrontPageStatus frontPageStatus = FrontPageStatus.Any,
@@ -34,8 +35,8 @@
             ItemAvailableStatus = itemAvailableStatus;
         }
 
-        public PublishStatus PublishStatus { get; }
-        public FrontPageStatus FrontPageStatus { get; }
-        public ItemAvailableStatus ItemAvailableStatus { get; }
+        public PublishStatus PublishStatus { get; set; }
+        public FrontPageStatus FrontPageStatus { get; set; }
+        public ItemAvailableStatus ItemAvailableStatus { get; set; }
     }
 }

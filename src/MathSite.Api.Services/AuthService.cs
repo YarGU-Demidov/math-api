@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using MathSite.Api.Core;
+using MathSite.Api.Dto;
 using MathSite.Api.Internal;
 using MathSite.Common.ApiServiceRequester.Abstractions;
 
@@ -19,7 +20,7 @@ namespace MathSite.Api.Services
             return await GetRequestAsync<Guid>(MethodNames.Auth.GetCurrentUserId);
         }
 
-        public async Task<Guid> GetToken(string login, string password)
+        public async Task<TokenDto> GetToken(string login, string password)
         {
             var args = new MethodArgs
             {
@@ -27,7 +28,7 @@ namespace MathSite.Api.Services
                 {nameof(password), password}
             };
 
-            return await PostRequestAsync<Guid>(MethodNames.Auth.GetToken, args);
+            return await PostRequestAsync<TokenDto>(MethodNames.Auth.GetToken, args);
         }
     }
 }

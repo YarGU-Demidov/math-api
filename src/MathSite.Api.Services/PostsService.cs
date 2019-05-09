@@ -25,9 +25,13 @@ namespace MathSite.Api.Services
                 {nameof(pagesCountArgs.ItemAvailableStatus), pagesCountArgs.ItemAvailableStatus.ToString()},
                 {nameof(pagesCountArgs.PublishStatus), pagesCountArgs.PublishStatus.ToString()},
                 {nameof(pagesCountArgs.PerPage), pagesCountArgs.PerPage.ToString()},
-                {nameof(pagesCountArgs.Category), pagesCountArgs.Category?.Id.ToString()},
-                {nameof(pagesCountArgs.PostType), pagesCountArgs.PostType.Id.ToString()}
+                {"PostType.Id", pagesCountArgs.PostType.Id.ToString()}
             };
+
+            if (pagesCountArgs.Category != null)
+            {
+                args.Add("Category.Id", pagesCountArgs.Category?.Id.ToString());
+            }
 
             return PostRequestAsync<int>(MethodNames.Posts.GetPagesCount, args);
         }
@@ -37,7 +41,7 @@ namespace MathSite.Api.Services
             var args = new MethodArgs
             {
                 {nameof(url), url},
-                {"postType.Id", postType.Id.ToString()}//TODO Canged Service
+                {"PostType.Id", postType.Id.ToString()}//TODO Canged Service
             };
 
             return await PostRequestAsync<PostDto>(MethodNames.Posts.GetPostByUrlAndType, args);

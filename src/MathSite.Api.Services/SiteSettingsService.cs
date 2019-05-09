@@ -30,7 +30,7 @@ namespace MathSite.Api.Services
 
         public async Task<string> GetDefaultHomePageTitleAsync()
         {
-            return await PostRequestAsync<string>(MethodNames.SiteSettings.GetDefaultHomePageTitle);
+            return await GetRequestAsync<string>(MethodNames.SiteSettings.GetDefaultHomePageTitle);
         }
 
         public async Task<string> GetDefaultNewsPageTitleAsync()

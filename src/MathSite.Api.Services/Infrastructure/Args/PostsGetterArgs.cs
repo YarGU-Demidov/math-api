@@ -6,6 +6,7 @@ namespace MathSite.Api.Services.Infrastructure.Args
 {
     public class PostsGetterArgs : PostArgs
     {
+        public PostsGetterArgs() { }
         public PostsGetterArgs(
             Guid? categoryId,
             int page,
@@ -26,11 +27,11 @@ namespace MathSite.Api.Services.Infrastructure.Args
             SortByPublish = sortByPublish;
         }
 
-        public Guid? CategoryId { get; }
-        public int Page { get; }
-        public int PerPage { get; }
-        public PostTypeDto PostType { get; }
-        public IEnumerable<CategoryDto> ExcludedCategories { get; }
-        public bool SortByPublish { get; }
+        public Guid? CategoryId { get; set; }
+        public int Page { get; set; }
+        public int PerPage { get; set; }
+        public PostTypeDto PostType { get; set; }
+        public IEnumerable<CategoryDto> ExcludedCategories { get; set; }
+        public bool SortByPublish { get; set; }
     }
 }

@@ -4,6 +4,7 @@ namespace MathSite.Api.Services.Infrastructure.Args
 {
     public class PagesCountArgs : PostArgs
     {
+        public PagesCountArgs() { }
         public PagesCountArgs(
             PostTypeDto postType,
             int perPage,
@@ -28,8 +29,8 @@ namespace MathSite.Api.Services.Infrastructure.Args
             PerPage = perPage;
         }
 
-        public PostTypeDto PostType { get; }
-        public CategoryDto Category { get; }
-        public int PerPage { get; }
+        public PostTypeDto PostType {get; set; }
+        public CategoryDto Category { get; set; }
+        public int PerPage { get; set; }
     }
 }

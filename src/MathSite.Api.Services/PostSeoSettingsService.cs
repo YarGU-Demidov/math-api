@@ -14,14 +14,14 @@ namespace MathSite.Api.Services
 
         protected override string ServiceName { get; } = ServiceNames.PostSeoSettings;
 
-        public async Task<PostTypeDto> GetByPostIdAsync(PostDto post)
+        public async Task<PostSeoSettingDto> GetByPostIdAsync(PostDto post)//TODO CHANGED
         {
             var args = new MethodArgs
             {
                 {"postId", post.Id.ToString()}
             };
 
-            return await GetRequestAsync<PostTypeDto>(MethodNames.PostSeoSettings.GetByPostId, args);
+            return await GetRequestAsync<PostSeoSettingDto>(MethodNames.PostSeoSettings.GetByPostId, args);
         }
 
         protected override MethodArgs EntityToArgs(PostSeoSettingDto setting, ActionType action)

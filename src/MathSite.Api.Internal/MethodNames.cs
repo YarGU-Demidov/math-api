@@ -11,6 +11,7 @@
             public const string Create = "create";
             public const string Update = "update";
             public const string Delete = "delete";
+            public const string DeleteMany = "delete-many";
             public const string GetOne = "get-by-id";
             
             public const string GetByAlias = "get-by-alias";
@@ -19,6 +20,7 @@
         public static class Users
         {
             public const string GetAll = "get-all";
+            public const string GetAllByPageNested = "get-all-by-page-nested";
             public const string GetByLogin = "get-by-login";
             public const string GetByLoginAndPassword = "get-by-login-and-password";
             public const string HasRight = "has-right";
@@ -29,6 +31,7 @@
 
         public static class SiteSettings
         {
+            public const string GetSiteSettings = "get-site-settings";
             public const string GetPerPageCount = "get-per-page-count";
             public const string GetTitleDelimiter = "get-title-delimiter";
             public const string GetDefaultHomePageTitle = "get-default-home-page-title";
@@ -44,6 +47,9 @@
 
         public static class Professors
         {
+            public const string GetByIdWithPerson = "get-by-id-with-person";
+            public const string GetAllBySurname = "get-all-by-surname";
+            public const string GetAllByPageNested = "get-all-by-page-nested";
         }
 
         public static class Files
@@ -55,11 +61,13 @@
 
         public static class Categories
         {
+            public const string GetAllByPageNested = "get-all-by-page-nested";
         }
 
         public static class Groups
         {
             public const string GetGroupsByType = "get-groups-by-type";
+            public const string GetAllByPageNested = "get-all-by-page-nested";
             public const string HasRight = "has-right";
         }
 
@@ -95,6 +103,10 @@
         {
             public const string GetAllWithoutUsers = "get-all-without-users";
             public const string GetAllWithoutProfessors = "get-all-without-professors";
+            public const string GetAllByPageNested = "get-all-by-page-nested";
+            public const string GetAllBySurname = "get-all-by-surname";
+            public const string GetAllBySurnameWithoutUsers = "get-all-by-surname-without-users";
+            public const string GetAllBySurnameWithoutProfessors = "get-all-by-surname-without-professors";
         }
 
         public static class Auth

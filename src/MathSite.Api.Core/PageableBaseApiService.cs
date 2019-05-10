@@ -27,7 +27,7 @@ namespace MathSite.Api.Core
                 {nameof(perPage), perPage.ToString()}
             };
 
-            return await PostRequestAsync<IEnumerable<T>>(MethodNames.Global.GetPaged, args);
+            return await GetRequestAsync<IEnumerable<T>>(MethodNames.Global.GetPaged, args);
         }
     }
 }
